@@ -9,8 +9,7 @@
 
 typedef struct stack_s {
 	int				value; 
-	int				current_position; 
-	int				final_index; 
+	int				current_position;  
 	int				push_price; 
 	bool			above_median; 
 	bool			cheapest; 
