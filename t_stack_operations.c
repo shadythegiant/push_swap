@@ -38,7 +38,7 @@ void ft_append_node(t_stack **stack , int nbr)
 	}
 }
 
-int t_stack_size(t_stack *stack) 
+int ft_stack_size(t_stack *stack) 
 { 
 	int	len; 
 	if(!stack)
@@ -51,3 +51,35 @@ int t_stack_size(t_stack *stack)
 	}	
 	return (len); 
 }
+
+t_stack *ft_smallest_value(t_stack *node) 
+{ 
+	long		smallest;
+	t_stack		*smallest_node;
+	
+	smallest = LONG_MAX; 
+	while(node) 
+	{
+		if(node->value < smallest)
+		{
+			smallest = node->value; 
+			smallest_node = node; 
+		}
+		node = node->next; 
+	}
+	return (smallest_node); 
+}
+
+t_stack *ft_cheapest_node(t_stack *node) 
+{
+	if(node == NULL)
+		return NULL; 
+	while(node)
+	{
+		if(node->cheapest)
+			return (node); 
+		node = node->next; 	
+	}	
+	return (NULL); 
+}
+
