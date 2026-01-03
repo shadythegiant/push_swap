@@ -11,7 +11,7 @@ void print_stack(t_stack *stack) {
 }
 int main(int argc , char **argv) 
 { 
-	t_stack		*a; 
+	t_stack			*a; 
 	// t_stack		*b; 
 
 	a = NULL;
@@ -24,5 +24,6 @@ int main(int argc , char **argv)
 		init_stack(&a, ft_split(argv[1], ' '), true); 
 	else 
 		init_stack(&a, argv + 1, false); 
-	print_stack(a); 	
+	print_stack(a); 
+	ft_printf("%d \n", ft_stack_size(a)); 	
 }

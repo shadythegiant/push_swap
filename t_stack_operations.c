@@ -37,3 +37,17 @@ void ft_append_node(t_stack **stack , int nbr)
 		node->prev = last_node; 
 	}
 }
+
+int t_stack_size(t_stack *stack) 
+{ 
+	int	len; 
+	if(!stack)
+		return (0); 
+	len = 0; 
+	while(stack) 
+	{ 
+		stack = stack->next; 
+		len++; 
+	}	
+	return (len); 
+}

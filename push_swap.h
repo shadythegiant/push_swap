@@ -38,7 +38,7 @@ int ft_cleanup(t_stack **a, char **argv, bool argv_split);
 // t_stack operations 
 t_stack *ft_stacklast(t_stack *head); 
 void ft_append_node(t_stack **stack , int nbr); 
-
+int t_stack_size(t_stack *stack);
 
 
 
