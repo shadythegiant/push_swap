@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static	ft_push(t_stack **src, t_stack **dest)
+static	void ft_push(t_stack **src, t_stack **dest)
 {
 	t_stack  *node; 
 	if(*src == NULL || dest == NULL || src == NULL)

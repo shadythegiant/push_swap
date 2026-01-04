@@ -49,4 +49,7 @@ void				rr(t_stack **a, t_stack **b, bool print);
 void				rra(t_stack **a, bool print);
 void				rrb(t_stack **b, bool print);
 void				rrr(t_stack **a, t_stack **b, bool print);
+void				sa(t_stack **a, bool print); 
+void				sb(t_stack **b, bool print);
+void				ss(t_stack **a, t_stack **b, bool print);
 #endif

@@ -3,7 +3,6 @@
 static void ft_rotate(t_stack **head)
 {
 	t_stack		*last_node;
-	int			len; 
 	if(head == NULL || *head == NULL || (*head)->next == NULL)
 		return; 
 	last_node = ft_stacklast(*head); 

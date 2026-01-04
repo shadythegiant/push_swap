@@ -1,10 +1,7 @@
 NAME        = push_swap
 CC          = cc
 CFLAGS      = -Wall -Wextra -Werror
-SRCS        = main.c \
-              init_stack.c \
-              parsing.c \
-              t_stack_operations.c
+SRCS = $(wildcard *.c)
 
 OBJS        = $(SRCS:.c=.o)
 SRC_DIR     = src
