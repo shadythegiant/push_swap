@@ -31,3 +31,23 @@ t_stack *find_max(t_stack *node)
 	}
 	return (max_node); 
 }
+
+void sort_three(t_stack **head)
+{
+	if(*head == NULL || head == NULL || (*head)->next == NULL)
+		return; 
+
+	t_stack  *max_node; 
+	max_node = find_max(*head); 
+	if(*head == max_node)
+		ra(head, true); 
+	else if((*head)->next == max_node) 
+		rra(head, true); 
+	if((*head)->value > (*head)->next->value)
+		sa(head, true); 
+}  
+
+void sort_five(t_stack **a , t_stack **b)
+{
+	
+}

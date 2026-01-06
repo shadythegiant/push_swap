@@ -38,6 +38,8 @@ int					ft_stack_size(t_stack *stack);
 t_stack				*ft_smallest_value(t_stack *node);
 t_stack				*ft_cheapest_node(t_stack *node);
 bool				is_sorted(t_stack *head);
+t_stack				*find_max(t_stack *node);
+void				sort_three(t_stack **head);
 
 // commands
 
