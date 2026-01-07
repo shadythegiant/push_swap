@@ -40,6 +40,17 @@ t_stack				*ft_cheapest_node(t_stack *node);
 bool				is_sorted(t_stack *head);
 t_stack				*find_max(t_stack *node);
 void				sort_three(t_stack **head);
+void				sort_five(t_stack **a, t_stack **b);
+
+// algo
+void				ft_set_position(t_stack *node);
+void				ft_set_target_node(t_stack *a, t_stack *b);
+void				ft_set_price(t_stack *a, t_stack *b);
+void				ft_set_cheapest(t_stack *node);
+void				ft_init_nodes(t_stack *a, t_stack *b);
+void				ft_finish_stack_rotation(t_stack **node, t_stack *top_node,
+						char stack_name);
+void				ft_push_swap(t_stack **a, t_stack **b);
 
 // commands
 
@@ -51,7 +62,7 @@ void				rr(t_stack **a, t_stack **b, bool print);
 void				rra(t_stack **a, bool print);
 void				rrb(t_stack **b, bool print);
 void				rrr(t_stack **a, t_stack **b, bool print);
-void				sa(t_stack **a, bool print); 
+void				sa(t_stack **a, bool print);
 void				sb(t_stack **b, bool print);
 void				ss(t_stack **a, t_stack **b, bool print);
 #endif

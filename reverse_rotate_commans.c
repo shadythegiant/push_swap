@@ -6,17 +6,11 @@ static void	ft_reverse_rotate(t_stack **head)
 
 	if (NULL == head || NULL == *head || NULL == (*head)->next)
 		return ;
-	// 1. Find the last node
 	last_node = ft_stacklast(*head);
-	// 2. Detach from the back
-	// The node BEFORE the last one (prev) must now point to NULL (become the new tail)
 	last_node->prev->next = NULL;
-	// 3. Attach to the front
-	last_node->next = *head;   // Old last points to old head
-	(*head)->prev = last_node; // Old head points back to old last
-	// 4. Update the actual Head pointer
+	last_node->next = *head;
+	(*head)->prev = last_node;
 	*head = last_node;
-	// 5. Clean up the new Head's history
 	(*head)->prev = NULL;
 }
 
