@@ -14,6 +14,7 @@ typedef struct stack_s
 	int				push_price;
 	bool			above_median;
 	bool			cheapest;
+	bool			is_in_lis; 
 	struct stack_s	*target_node;
 	struct stack_s	*next;
 	struct stack_s	*prev;
@@ -51,6 +52,8 @@ void				ft_init_nodes(t_stack *a, t_stack *b);
 void				ft_finish_stack_rotation(t_stack **node, t_stack *top_node,
 						char stack_name);
 void				ft_push_swap(t_stack **a, t_stack **b);
+void				ft_mark_lis(t_stack *a);
+void				push_all_save_lis(t_stack **a, t_stack **b);
 
 // commands
 
