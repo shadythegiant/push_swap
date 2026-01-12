@@ -21,7 +21,7 @@ int	ft_is_validinput(char *str)
 		return (1);
 	while (*str)
 	{
-		if (!(*str >= '0' && *str <= '9'))
+		if (!(ft_isdigit(*str)))
 			return (1);
 		str++;
 	}
