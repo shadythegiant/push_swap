@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap_command.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azahidi <azahidi@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/12 16:41:45 by azahidi           #+#    #+#             */
+/*   Updated: 2026/01/12 16:41:48 by azahidi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	ft_swap(t_stack **head)
@@ -17,6 +29,7 @@ static void	ft_swap(t_stack **head)
 	second_node->next = first_node;
 	*head = second_node;
 }
+
 void	sa(t_stack **a, bool print)
 {
 	ft_swap(a);

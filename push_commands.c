@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_commands.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azahidi <azahidi@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/12 16:40:05 by azahidi           #+#    #+#             */
+/*   Updated: 2026/01/12 16:40:11 by azahidi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	ft_push(t_stack **src, t_stack **dest)
@@ -6,11 +18,8 @@ static void	ft_push(t_stack **src, t_stack **dest)
 
 	if (*src == NULL || dest == NULL || src == NULL)
 		return ;
-	// save the  top node of the src in node to push
 	node = *src;
-	// move src p to next to remove the first node;
 	*src = (*src)->next;
-	// update the src p to be the new head;
 	if (*src)
 		(*src)->prev = NULL;
 	node->prev = NULL;

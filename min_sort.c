@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   min_sort.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azahidi <azahidi@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/12 16:39:11 by azahidi           #+#    #+#             */
+/*   Updated: 2026/01/12 16:39:15 by azahidi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 bool	is_sorted(t_stack *head)
@@ -48,22 +60,17 @@ void	sort_three(t_stack **head)
 		sa(head, true);
 }
 
-void sort_five(t_stack **a, t_stack **b)
+void	sort_five(t_stack **a, t_stack **b)
 {
-    // 1. Push the 2 smallest numbers to B
-    while (ft_stack_size(*a) > 3)
-    {
-        ft_init_nodes(*a, *b); // Update indices
-        ft_finish_stack_rotation(a, ft_smallest_value(*a), 'a'); // Rotate smallest to top
-        pb(a, b, true);
-    }
-    
-    // 2. Sort the remaining 3 numbers in A
-    sort_three(a);
-    
-    // 3. Push the 2 numbers back to A
-    while (*b)
-    {
-        pa(a, b, true);
-    }
+	while (ft_stack_size(*a) > 3)
+	{
+		ft_init_nodes(*a, *b);
+		ft_finish_stack_rotation(a, ft_smallest_value(*a), 'a');
+		pb(a, b, true);
+	}
+	sort_three(a);
+	while (*b)
+	{
+		pa(a, b, true);
+	}
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azahidi <azahidi@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/12 16:40:40 by azahidi           #+#    #+#             */
+/*   Updated: 2026/01/12 16:40:43 by azahidi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -14,7 +26,7 @@ typedef struct stack_s
 	int				push_price;
 	bool			above_median;
 	bool			cheapest;
-	bool			is_in_lis; 
+	bool			is_in_lis;
 	struct stack_s	*target_node;
 	struct stack_s	*next;
 	struct stack_s	*prev;
@@ -54,6 +66,12 @@ void				ft_finish_stack_rotation(t_stack **node, t_stack *top_node,
 void				ft_push_swap(t_stack **a, t_stack **b);
 void				ft_mark_lis(t_stack *a);
 void				push_all_save_lis(t_stack **a, t_stack **b);
+void				calculate_lis_indices(int *arr, int size, int **lis_flags);
+int					*list_to_array(t_stack *stack, int size);
+int					init_arrays(int size, int **len, int **sub_seq);
+void				fill_lis_arrays(int *arr, int size, int *len, int *sub_seq);
+void				mark_lis_path(int size, int *len, int *sub_seq,
+						int **lis_flags);
 
 // commands
 

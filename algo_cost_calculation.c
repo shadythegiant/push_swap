@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo_cost_calculation.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azahidi <azahidi@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/12 16:35:57 by azahidi           #+#    #+#             */
+/*   Updated: 2026/01/12 16:36:03 by azahidi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_set_position(t_stack *node)
@@ -47,6 +59,7 @@ void	ft_set_target_node(t_stack *a, t_stack *b)
 		b = b->next;
 	}
 }
+
 void	ft_set_price(t_stack *a, t_stack *b)
 {
 	int	a_len;
@@ -66,6 +79,7 @@ void	ft_set_price(t_stack *a, t_stack *b)
 		b = b->next;
 	}
 }
+
 void	ft_set_cheapest(t_stack *node)
 {
 	long	best_match_value;
