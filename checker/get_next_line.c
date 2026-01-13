@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "checker.h"
 
-static void	*ft_cleanup(char **buffer)
+static void	*ft_cleanup2(char **buffer)
 {
 	if (*buffer != NULL)
 		free(*buffer);
@@ -29,7 +29,7 @@ static char	*ft_extract_line(char **buffer, size_t index)
 	buffer_cpy = *buffer;
 	tmp = ft_strndup(buffer_cpy, index);
 	if (!tmp)
-		return (ft_cleanup(buffer));
+		return (ft_cleanup2(buffer));
 	while (buffer_cpy[index])
 		buffer_cpy[i++] = buffer_cpy[index++];
 	buffer_cpy[i] = '\0';
@@ -65,23 +65,23 @@ static char	*ft_read_until_newline(int fd, char **buffer, int bytes)
 	size_t	occupied_size;
 	ssize_t	newline_index;
 
-	newline_index = ft_strchr(*buffer, '\n');
+	newline_index = gnl_strchr(*buffer, '\n');
 	while (newline_index == -1)
 	{
 		occupied_size = ft_strlen(*buffer);
 		if (!ft_reallocate_buff(buffer, occupied_size))
-			return (ft_cleanup(buffer));
+			return (ft_cleanup2(buffer));
 		bytes = read(fd, *buffer + occupied_size, BUFFER_SIZE);
 		if (bytes == -1)
-			return (ft_cleanup(buffer));
+			return (ft_cleanup2(buffer));
 		(*buffer)[occupied_size + bytes] = '\0';
 		if (bytes == 0)
 		{
 			if ((*buffer)[0] == '\0')
-				return (ft_cleanup(buffer));
+				return (ft_cleanup2(buffer));
 			return (ft_extract_line(buffer, occupied_size));
 		}
-		newline_index = ft_strchr(*buffer, '\n');
+		newline_index = gnl_strchr(*buffer, '\n');
 	}
 	return (ft_extract_line(buffer, newline_index + 1));
 }
@@ -107,7 +107,7 @@ char	*get_next_line(int fd)
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes == 0 || bytes == -1)
-			return (ft_cleanup(&buffer));
+			return (ft_cleanup2(&buffer));
 		buffer[bytes] = '\0';
 	}
 	return (ft_read_until_newline(fd, &buffer, bytes));

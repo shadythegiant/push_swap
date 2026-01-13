@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
+
 char	*ft_strndup(const char *s, size_t n)
 {
 	size_t	i;
@@ -28,7 +29,7 @@ char	*ft_strndup(const char *s, size_t n)
 	return (dup);
 }
 
-ssize_t	ft_strchr(const char *s, int c)
+ssize_t	gnl_strchr(const char *s, int c)
 {
 	size_t	index;
 
@@ -39,5 +40,3 @@ ssize_t	ft_strchr(const char *s, int c)
 		return (index);
 	return (-1);
 }
-
-
