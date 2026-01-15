@@ -21,10 +21,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
-	if (argc == 2)
-		init_stack(&a, ft_split(argv[1], ' '), true);
-	else
-		init_stack(&a, argv + 1, false);
+	init_stack(&a, argv + 1);
 	if (!(is_sorted(a)))
 	{
 		if (ft_stack_size(a) == 2)

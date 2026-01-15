@@ -35,7 +35,7 @@ typedef struct stack_s
 // initializing and parsing command line args:
 
 // intitializing :
-void				init_stack(t_stack **a, char **argv, bool split_argv);
+void				init_stack(t_stack **a, char **argv);
 
 // parsing :
 int					ft_is_validinput(char *str);
