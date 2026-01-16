@@ -72,6 +72,7 @@ int					init_arrays(int size, int **len, int **sub_seq);
 void				fill_lis_arrays(int *arr, int size, int *len, int *sub_seq);
 void				mark_lis_path(int size, int *len, int *sub_seq,
 						int **lis_flags);
+void				ft_calculate_cost(t_stack *b, int len_a, int len_b);
 
 // commands
 

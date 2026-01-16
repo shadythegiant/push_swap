@@ -64,34 +64,16 @@ void	ft_set_price(t_stack *a, t_stack *b)
 {
 	int	len_a;
 	int	len_b;
-	int	target_price;
 
 	len_a = ft_stack_size(a);
 	len_b = ft_stack_size(b);
-	target_price = 0; 
 	while (b)
 	{
-		b->push_price = b->current_position;
-		if (!(b->above_median))
-			b->push_price = len_b - (b->current_position);
-		target_price = b->target_node->current_position;
-		if (!(b->target_node->above_median))
-			target_price = len_a - (b->target_node->current_position);
-		if (b->above_median && b->target_node->above_median)
-		{
-			if (target_price > b->push_price)
-				b->push_price = target_price;
-		}
-		else if (!(b->above_median) && !(b->target_node->above_median))
-		{
-			if (target_price > b->push_price)
-				b->push_price = target_price;
-		}
-		else
-			b->push_price += target_price;
+		ft_calculate_cost(b, len_a, len_b);
 		b = b->next;
 	}
 }
+
 void	ft_set_cheapest(t_stack *node)
 {
 	long	best_match_value;

@@ -19,7 +19,8 @@ SHARED_OBJS = $(ROOT_DIR)/push_commands.o \
 			  $(ROOT_DIR)/algo_cost_calculation.o \
 			  $(ROOT_DIR)/LIS_optimization.o \
 			  $(ROOT_DIR)/LIS_utils.o \
-			  $(ROOT_DIR)/min_sort.o
+			  $(ROOT_DIR)/min_sort.o \
+			  $(ROOT_DIR)/algo_push_price_calculation.o
 all: $(NAME)
 
 $(NAME): $(OBJ_CHECKER)
