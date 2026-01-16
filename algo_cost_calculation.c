@@ -68,6 +68,7 @@ void	ft_set_price(t_stack *a, t_stack *b)
 
 	len_a = ft_stack_size(a);
 	len_b = ft_stack_size(b);
+	target_price = 0; 
 	while (b)
 	{
 		b->push_price = b->current_position;

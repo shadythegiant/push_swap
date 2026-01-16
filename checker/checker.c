@@ -81,10 +81,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
-	if (argc == 2)
-		init_stack(&a, ft_split(argv[1], ' '), true);
-	else
-		init_stack(&a, argv + 1, false);
+	init_stack(&a, argv + 1);
 	len = ft_stack_size(a);
 	line = get_next_line(0);
 	ft_process_line(line, &a, &b);

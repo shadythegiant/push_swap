@@ -412,17 +412,40 @@ if [ -n "$CHECKER_BONUS" ]; then
 fi
 
 # Run Leaks Tests
+LEAK_LOG="leaks_log.txt"
+> "$LEAK_LOG" # Clear previous logs
+
 if command -v valgrind &> /dev/null; then
     STATUS_MSG="${BLUE}Running memory leak tests...${NC}"
     draw_ui
     
     run_leak_test() {
-        valgrind --leak-check=full --show-leak-kinds=all --error-exitcode=42 ./push_swap $1 > /dev/null 2>&1
-        if [ $? -ne 42 ]; then
-            LEAKS_PASS=$((LEAKS_PASS + 1))
+        # 1. Run Valgrind and redirect STDERR (2) to a temp file, discard STDOUT (1)
+        # We use --error-exitcode=42 to detect leaks
+        valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --error-exitcode=42 ./push_swap "$1" > /dev/null 2> valgrind_tmp.log
+        
+        EXIT_CODE=$?
+
+        # 2. Check if Valgrind returned 42 (Leak) OR if it segfaulted (usually 139)
+        if [ $EXIT_CODE -eq 42 ] || [ $EXIT_CODE -eq 139 ]; then
+            echo "----------------------------------------------------------------" >> "$LEAK_LOG"
+            echo "FAILED CASE DETECTED" >> "$LEAK_LOG"
+            echo "ARGS: \"$1\"" >> "$LEAK_LOG"
+            echo "EXIT CODE: $EXIT_CODE" >> "$LEAK_LOG"
+            echo "" >> "$LEAK_LOG"
+            echo "--- VALGRIND OUTPUT ---" >> "$LEAK_LOG"
+            cat valgrind_tmp.log >> "$LEAK_LOG"
+            echo "----------------------------------------------------------------" >> "$LEAK_LOG"
+            echo "" >> "$LEAK_LOG"
+            
+            # Count it as a fail in the UI
+            echo "Leak detected! See $LEAK_LOG" >> "$FAIL_LOG"
         else
-            echo "Leak detected with args: '$1'" >> "$FAIL_LOG"
+            LEAKS_PASS=$((LEAKS_PASS + 1))
         fi
+        
+        # Clean up temp file
+        rm -f valgrind_tmp.log
         draw_ui
     }
 
