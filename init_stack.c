@@ -12,12 +12,13 @@
 
 #include "push_swap.h"
 
-static void process_tokens(t_stack **a, char **tokens) 
+static void	process_tokens(t_stack **a, char **tokens)
 {
-	int			i;
-	long		nbr; 
-	i = 0; 
-	while(tokens[i])
+	int		i;
+	long	nbr;
+
+	i = 0;
+	while (tokens[i])
 	{
 		if (ft_is_validinput(tokens[i]))
 			ft_cleanup(a, tokens, true);
@@ -33,15 +34,17 @@ static void process_tokens(t_stack **a, char **tokens)
 
 static void	parse_arguments(t_stack **a, char *arg)
 {
-	char 	**tokens;
-	tokens = ft_split(arg, ' '); 
-	if(!tokens)
-		ft_cleanup(a, NULL, false); 
-	if(!tokens[0])
-		ft_cleanup(a, tokens, true); 
-	process_tokens(a , tokens); 
-	ft_clean_argv(tokens); 
+	char	**tokens;
+
+	tokens = ft_split(arg, ' ');
+	if (!tokens)
+		ft_cleanup(a, NULL, false);
+	if (!tokens[0])
+		ft_cleanup(a, tokens, true);
+	process_tokens(a, tokens);
+	ft_clean_argv(tokens);
 }
+
 void	init_stack(t_stack **a, char **argv)
 {
 	int	i;
