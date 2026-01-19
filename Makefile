@@ -9,6 +9,7 @@ ARGS_500    = $(shell shuf -i 1-1000 -n 500)
 ARGS_100    = $(shell shuf -i 1-1000 -n 100)
 ARGS_5      = $(shell shuf -i 1-1000 -n 5)
 ARGS_3      = $(shell shuf -i 1-1000 -n 3)
+CHEK_ARGS   :=$(shell shuf -i 1-1000 -n 500)
 # Directories
 SRC_DIR     = src
 LIBFT_DIR   = $(SRC_DIR)/libft
@@ -48,6 +49,9 @@ run_3 :
 	 
 leaks :
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --leak-resolution=high --num-callers=20 --errors-for-leak-kinds=all ./push_swap $(ARGS_500)
+
+run_checker :
+	./push_swap $(CHEK_ARGS) | ./checker_linux $(CHEK_ARGS)
 
 bonus:
 	@make -C $(CHECKER_DIR)
