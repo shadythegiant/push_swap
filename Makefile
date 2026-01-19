@@ -3,11 +3,12 @@ BONUS_NAME  = checker
 CC          = cc
 CFLAGS      = -Wall -Wextra -Werror  
 DEBUGFLAG   = -g -D LOG_DEBUG=1
-
-# Source files in the root directory
 SRCS        = $(wildcard *.c)
 OBJS        = $(SRCS:.c=.o)
-
+ARGS_500    = $(shell shuf -i 1-1000 -n 500)
+ARGS_100    = $(shell shuf -i 1-1000 -n 100)
+ARGS_5      = $(shell shuf -i 1-1000 -n 5)
+ARGS_3      = $(shell shuf -i 1-1000 -n 3)
 # Directories
 SRC_DIR     = src
 LIBFT_DIR   = $(SRC_DIR)/libft
@@ -33,7 +34,21 @@ $(LIBFT):
 $(PRINTF):
 	@make -C $(PRINTF_DIR)
 
-# Fixed the typo here: CHEKCER -> CHECKER
+run_500 :
+	./push_swap $(ARGS_500) | wc -l 
+
+run_100 :
+	./push_swap $(ARGS_100) | wc -l
+
+run_5 :
+	./push_swap $(ARGS_5) | wc -l
+
+run_3 :
+	./push_swap $(ARGS_3) | wc -l
+	 
+leaks :
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --leak-resolution=high --num-callers=20 --errors-for-leak-kinds=all ./push_swap $(ARGS_500)
+
 bonus:
 	@make -C $(CHECKER_DIR)
 
@@ -51,4 +66,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus run_500 run_100 run_5 run_3 
