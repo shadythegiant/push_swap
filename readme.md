@@ -12,8 +12,6 @@ The project focuses on:
 - **Rigor:** Strictly adhering to the "Norm" and memory management rules.
 - **C Proficiency:** Utilizing basic algorithms and stack manipulation.
 
-_This project has been created as part of the 42 curriculum by `azahidi`._
-
 ---
 
 ### The Rules
