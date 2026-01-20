@@ -22,15 +22,11 @@ BONUS_SRCS  =  $(CHECKER_DIR)/checker.c \
 				$(CHECKER_DIR)/get_next_line_utils.c \
 
 BONUS_OBJS  = $(BONUS_SRCS:.c=.o)
-
-# ----------------- ARGS FOR TESTING ----------------- #
 ARGS_500    = $(shell shuf -i 1-1000 -n 500)
 ARGS_100    = $(shell shuf -i 1-1000 -n 100)
 ARGS_5      = $(shell shuf -i 1-1000 -n 5)
 ARGS_3      = $(shell shuf -i 1-1000 -n 3)
 CHEK_ARGS   :=$(shell shuf -i 1-1000 -n 500)
-
-# ----------------- RULES ----------------- #
 
 all: $(NAME)
 
@@ -54,8 +50,6 @@ $(LIBFT):
 $(PRINTF):
 	@make -C $(PRINTF_DIR)
 
-# ----------------- CLEANUP ----------------- #
-
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
 	@make -C $(LIBFT_DIR) clean
@@ -67,8 +61,6 @@ fclean: clean
 	@make -C $(PRINTF_DIR) fclean
 
 re: fclean all
-
-# ----------------- RUNNERS ----------------- #
 
 run_500 :
 	./push_swap $(ARGS_500) | wc -l 
