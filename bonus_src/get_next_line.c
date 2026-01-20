@@ -97,14 +97,11 @@ char	*get_next_line(int fd)
 		free(buffer);
 		return (NULL);
 	}
-
 	read_buffer_size = (unsigned long)BUFFER_SIZE;
 	bytes = 0;
 	if (!buffer)
 	{
 		buffer = (char *)malloc(read_buffer_size + 1);
-		if (!buffer)
-			return (NULL);
 		buffer[0] = '\0';
 	}
 	if (!buffer[0])
