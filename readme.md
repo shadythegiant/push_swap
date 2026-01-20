@@ -115,7 +115,7 @@ The program includes a robust parser capable of handling:
 ## Resources & References
 
 - **Longest Increasing Subsequence:** [GeeksforGeeks - LIS](https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/)
-- **Turk Algorithm Reference:** [Medium Article on Turk Algo](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
+- **Turk Algorithm Reference:** [Medium Article on Turk Algo](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
 - **Visualizer:** [Push Swap Visualizer](https://github.com/o-reo/push_swap_visualizer) - Essential for debugging and verifying move counts.
 
 ---

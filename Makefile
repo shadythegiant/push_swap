@@ -9,13 +9,10 @@ PRINTF_DIR  = $(SRC_DIR)/printf
 CHECKER_DIR = bonus_src
 LIBFT       = $(LIBFT_DIR)/libft.a
 PRINTF      = $(PRINTF_DIR)/libftprintf.a
-
 INCLUDES    = -I. -I$(LIBFT_DIR) -I$(PRINTF_DIR) -I$(CHECKER_DIR)
 SRCS        = $(wildcard *.c)
 OBJS        = $(SRCS:.c=.o)
-
 MAIN_FILE   = main.c
-
 SHARED_OBJS = $(filter-out $(MAIN_FILE:.c=.o), $(OBJS))
 BONUS_SRCS  = $(wildcard $(CHECKER_DIR)/*.c)
 BONUS_OBJS  = $(BONUS_SRCS:.c=.o)
@@ -33,20 +30,18 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) $(PRINTF)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
+
 bonus: $(BONUS_NAME)
 
 $(BONUS_NAME): $(SHARED_OBJS) $(BONUS_OBJS) $(LIBFT) $(PRINTF)
 	$(CC) $(CFLAGS) $(SHARED_OBJS) $(BONUS_OBJS) $(LIBFT) $(PRINTF) -o $(BONUS_NAME)
 
-# Compile Root Files
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-# Compile Checker Folder Files
 $(CHECKER_DIR)/%.o: $(CHECKER_DIR)/%.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-# Libft Rules
 $(LIBFT):
 	@make -C $(LIBFT_DIR)
 
