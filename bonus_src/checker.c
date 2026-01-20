@@ -14,6 +14,7 @@
 
 static void	ft_error_free(t_stack **a, t_stack **b, char *line)
 {
+	get_next_line(-1);
 	if (line)
 		free(line);
 	ft_clean_stack(a);

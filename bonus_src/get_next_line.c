@@ -93,7 +93,11 @@ char	*get_next_line(int fd)
 	int				bytes;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
+	{
+		free(buffer);
 		return (NULL);
+	}
+
 	read_buffer_size = (unsigned long)BUFFER_SIZE;
 	bytes = 0;
 	if (!buffer)
