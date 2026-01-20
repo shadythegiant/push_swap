@@ -23,7 +23,7 @@ static void	process_tokens(t_stack **a, char **tokens)
 		if (ft_is_validinput(tokens[i]))
 			ft_cleanup(a, tokens, true);
 		nbr = ft_atol(tokens[i]);
-		if (nbr > INT_MAX || nbr < INT_MIN)
+		if (nbr > INT_MAX || nbr < INT_MIN || ft_strlen(tokens[i]) > 12)
 			ft_cleanup(a, tokens, true);
 		if (ft_find_duplicates(*a, (int)nbr))
 			ft_cleanup(a, tokens, true);
